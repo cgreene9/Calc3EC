@@ -1,0 +1,69 @@
+%Preamble
+%Style section
+\documentstyle[graphicx,amscd,amssymb,verbatim,12pt,righttag,color]{amsart}
+%documentclass[12pt,psfig,reqno]{amsart}
+%\usepackage[usenames]{color} %\color{Red}
+\setlength{\textwidth}{15.0cm}
+\setlength{\textheight}{22.0cm}
+\hoffset=-1cm
+\pagestyle {plain}
+% \theoremstyle{plain}
+%\newtheorem{Thm}{Theorem}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{Def}[theorem]{Definition}
+\newtheorem{Prop}[theorem]{Proposition}
+\newtheorem{Lem}[theorem]{Lemma}
+\newtheorem{Cor}[theorem]{Corollary}
+\newtheorem{Rem}[theorem]{Remark}
+\newtheorem{Example}[theorem]{Example}
+\newtheorem{Coj}[theorem]{Conjecture}
+\newtheorem{Main}{Main Theorem}
+\renewcommand{\theMain}{}
+%Command section
+\topmargin=0cm
+\errorcontextlines=0
+\numberwithin{equation}{section}
+\renewcommand{\rm}{\normalshape}
+%redefining \rm to mean: change to roman style
+\renewcommand{\baselinestretch}{1.1}
+%\usepackage{graphicx}
+\begin{document}
+\begin{center}
+{\bf Optional bonus: bonus 15 points for the final exam}
+\end{center}
+\bigskip
+\begin{enumerate}
+\item Please complete the following TWO questions by {\bf typing up the solution
+and providing us with the figure about the problem.} Handwritten solution will NOT
+be graded.
+\item For typing up, students are advised to use LaTeX (you can use it at
+Overleaf : www.overleaf.com). Students can also use Word File, though it will take
+longer time.
+\item For Figures, you can use desmos3D, or some other program that you know.
+\item Please declare how you work out the problem. e.g. you work in groups with
+another students, use Wofram Alpha or even you use ChatGPT or other AI, you have to
+declare. Failure of the declaration may result in 0 points.
+\item Please submit a PDF file on Canvas by next Friday.
+\end{enumerate}
+\bigskip
+\underline{{\bf Questions.}}
+\bigskip
+1. Let ${\bf F}(x,y,z) = \sin (x^2) {\bf i}+ xz {\bf j}+ z^2 {\bf k}$.
+Evaluate $\int_C {\bf F}\cdot d{\bf r}$ around the curve $C$ of the intersection
+of the cylinder $x^2+y^2=4$ with the surface $z = x^2$ in counter-clockwise
+direction as viewed from the top on the $z$-axis.
+\bigskip
+2. Let $E$ be the solid region between the plane $z = 4$ and the paraboloid $z =
+x^2+y^2$. Let
+$$
+{\bf F}(x,y,z) = \left(-\frac13 x^3+e^{z^2}\right){\bf i}+ \left(-\frac13y^3+x\sin
+z\right) {\bf j} + 4z{\bf k}.
+$$
+Let $S$ be the surface that encloses $E$.
+Find
+$$
+\iint\limits_S {\bf F}\cdot d{\bf S}.
+$$
+\bigskip
+\bigskip
+\end{document}
