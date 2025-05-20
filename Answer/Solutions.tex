@@ -19,8 +19,13 @@
 %command for vector notation
 \newcommand{\vectr}[3]{\langle {#1} , {#2} , {#3} \rangle}
 
+%command for div F 
+\newcommand{\diver}[1]{\frac{\partial F_{#1}}{\partial {#1}}}
+
 %get rid of the word abstract in the section
 \renewcommand{\abstractname}{}
+
+
 
 \title{Bonus problems}
 \author{Christopher Greene}
@@ -52,7 +57,7 @@ Which applies when: \\
 Therefore for this problem we can say:
 $\lineint{F} = \surfint{\mathrm{curl}\,\vec{F}}$ 
 \[
-\mathrm{Curl(\vec{F})} = \begin{bmatrix}
+\mathrm{Curl}(\vec{F}) = \begin{bmatrix}
     \vec{i} & \vec{j} & \vec{k} \\
     F_x     &  F_y    &  F_z    \\
     sin(x^2)&  xz     &  z^2    \\
@@ -116,6 +121,81 @@ Let E be the solid region between the plane $z = 4$ and the parabolid $z = x^2 +
 Let $\vec{F}(x,y,z) = \langle \frac{-1}{3}x^3 + e^{z^2} , \frac{-1}{3}y^3 +xsin(z) , 4z \rangle$
 Let S be the surface that encloses E.
 Find $\int \int_S \vec{F} \cdot d\vec{s}$
+
+We can apply divergence theorem as E is an enclosed region between our paraboloid and our plane. Our parabolid is not closed but we can artificially close it through our limits of 
+integration. 
+
+Divergence theorem is given by $\surfint{\vec{F}} = \iiint_V \mathrm{div(\vec{F})} dV$
+
+Our region is bounded by $z = 4 , z = x^2 + y^2$ as shown in figure 2. 
+
+\begin{figure}[H]
+\includegraphics[width=0.5\textwidth]{Figure2.png}  
+\caption{Intersection between paraboloid and plane}
+\label{figure2}  
+\end{figure}
+
+%readability \newcommand{\diver}[1]{\frac{\partial F_[#1]}{\partial [#1]}}
+$\mathrm{div}(\vec{F})= \diver{x} + \diver{y} + \diver{z}$
+
+now that the problem is contextualized we break down the integral: \\
+$\diver{x} = - x^2 \quad \diver{y} = -y^2 \quad \diver{z} = 4 \\
+\iiint_V -x^2 - y^2 + 4 \, dV $ 
+\\
+
+The paraboloid itself that encloses the region has an open top but we can artificially enclose the paraboloid by limiting the upper bound to $z = x^2 + y^2$
+
+let \\
+$ x = rcos\theta \\ y = rsin\theta \\ z = x^2 + y^2 \\ z = r^2cos^2\theta + r^2sin^2\theta \\ z = r^2$ \\ 
+because $z = x^2 + y^2 \quad r^2 = x^2 + y^2 \quad r = 2$ 
+
+set up the bounds of integration: 
+$ \int_{0}^{2\pi} \int_{0}^{2} \int_{4}^{r^2} \, -r^2cos^2\theta - r^2sin^2\theta + 4 r \, dz \, dr \, d\theta$
+
+$ \int_{0}^{2\pi} \int_{0}^{2} \int_{4}^{r^2} \, -r^3cos^2\theta - r^3sin^2\theta + 4r \, dz \, dr \, d\theta$
+
+$ \int_{0}^{2\pi} \int_{0}^{2} \, -zr^3cos^2\theta - zr^3sin^2\theta + 4zr \, \big|_4^{r^2} \, dr \, d\theta$
+
+$ \int_{0}^{2\pi} \int_{0}^{2} \, -r^5cos^2\theta - r^5sin^2\theta + 4r^3 + 4r^3cos^2\theta + 4r^3sin^2\theta - 16r  \, dr \, d\theta$
+
+$4r^3cos^2\theta + 4r^3sin^2\theta = 4r^3$
+
+$ \int_{0}^{2\pi} \int_{0}^{2} \, -r^5cos^2\theta - r^5sin^2\theta + 8r^3 - 16r  \, dr \, d\theta$
+
+%error in this line at integrating 8r^3 whiteboard looks wrong it is corrected here
+$ \int_{0}^{2\pi} \, -\frac{1}{6}r^6cos^2\theta - \frac{1}{6}r^6sin^2\theta + 2r^4 - 8r^2  \, \big|_0^2 \, d\theta$
+
+$ \int_{0}^{2\pi} \, -\frac{64}{6}cos^2\theta - \frac{64}{6}sin^2\theta  \, d\theta$
+
+$ \frac{64}{6}\int_{0}^{2\pi} \, -cos^2\theta - sin^2\theta  \, d\theta$
+
+Use trig substitutions: \\
+$cos^2\theta = \frac{1+cos(2\theta)}{2}
+sin^2\theta = \frac{1-cos(2\theta)}{2}$
+
+$\frac{64}{6} \int_{0}^{2\pi} \frac{-1-cos(2\theta)}{2} - \frac{1-cos(2\theta)}{2} \, d\theta$ 
+
+$\frac{64}{6} \int_{0}^{2\pi} -1 \, d\theta$ 
+
+$\frac{64}{6} (-2\pi)$ 
+
+$\frac{-128\pi}{6}$
+
+$\frac{-64\pi}{3}$
+
+Answer represents a volume so should be positive but is negative because I put r in the upper limit of integration instead of lower. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
